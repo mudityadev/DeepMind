@@ -1,0 +1,120 @@
+{% extends "./base.html" %}
+{% load static %}
+{% block title %}
+  Welcome
+{% endblock title %}
+{% block content %}
+<div class="container-fluid my-2">
+<div class="row">
+    <!-- this for input -->
+    <div class="col-5">
+        <div class="card text-center">
+            <div class="card-header">
+              <ul class="nav nav-pills card-header-pills">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">Video File</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">URL</a>
+                </li>
+              </ul>
+            </div>
+            <div class="card-body">
+             
+<div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Recipient's Gmail" aria-label="Recipient's username" aria-describedby="basic-addon2">
+    <span class="input-group-text" id="basic-addon2">@gmail.com</span>
+</div>
+
+
+<!-- form for upload video -->
+<div class="drop-zone mx-4">
+    <span class="drop-zone__prompt">Drop file here or click to upload Video</span>
+    <input type="file" name="myFile" class="drop-zone__input">
+  </div>
+
+  <div class="d-grid gap-2 col mx-auto my-2 ">
+    <button class="btn btn-primary" type="button">Analyze</button>
+    <button class="btn btn-danger" type="button">Clear</button>
+  </div>
+
+            </div>
+          </div>
+
+          <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+            <div class="offcanvas-header">
+              <h5 id="offcanvasTopLabel">Detection by URL :</h5>
+              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+
+              <form class="row g-6">
+                
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="example : https://www.youtube.com/watch?v=yBd-2xqwB2s" aria-label="Recipient's username with two button addons">
+                  <button class="btn btn-outline-primary" type="button">Analyze</button>
+                  <button class="btn btn-outline-danger" type="button">Clear</button>
+                </div>
+              </form>
+
+            </div>
+          </div>
+    </div>
+    
+
+
+    <!-- this for output -->
+    <div class="col-7">
+      
+      <!-- start-notification -->
+      <div class="alert alert-danger" role="alert">
+      We are currently working on deepmind platform. <b> we appricate your presences.</b>
+      </div>
+      <!-- end-notification -->
+
+      <div class="card">
+        <div class="card-header">
+          <b>File : </b> zuk.mp4
+          <span class="badge bg-primary">video/mp4</span>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <img src="{% static 'images/bill.jpg'%}" class="rounded float-left" width="400" height="200" alt="...">
+            </div>
+            <div class="col">
+              <ul class="list-group">
+                <a href="#" class="btn btn-danger btn-lg" role="button" aria-disabled="true"><i class="fas fa-exclamation-triangle"></i> Detected</a>
+              </ul>
+ 
+            </div>
+
+            <table class="table table-hover table-striped my-2">
+              <thead>
+                <tr class="text-primary">
+                  <th scope="col">Detection of</th>
+                  <th scope="col">Results</th>
+                  <th scope="col">Confidence</th>
+                  <th scope="col">Model Generator</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>face swap</th>
+                  <td><p class="text-danger"><i class="fas fa-exclamation-triangle"></i> Detected</p></td>
+                  <td>87.3 %</td>
+                  <td> - </td>
+                </tr>
+               
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+</div>  
+</div>
+
+  
+{% endblock content %}
